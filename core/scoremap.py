@@ -5,7 +5,7 @@ import os
 
 def compute_scoremap(F_test, F_mean):
   score = torch.norm(F_test - F_mean, dim=1)  # [N_patches]
-  size = int(np.sqrt(score.shape[0]))        # 例: 16x16 など
+  size = int(np.sqrt(score.shape[0]))
   score_map = score.reshape(size, size)
   # ゼロ割対策
   mn, mx = score_map.min(), score_map.max()
